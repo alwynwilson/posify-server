@@ -10,10 +10,7 @@ router.post('/register',userController.registerController)
 //login - http://localhost/login
 router.post('/login',userController.loginController)
 
-router.put('/updateUser/:pid/update',jwtMiddleware,userController.updateUserController)
-
 //product section
-
 router.get('/allproducts',jwtMiddleware,productController.getAllProductsController)
 
 module.exports = router

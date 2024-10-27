@@ -49,20 +49,3 @@ exports.loginController = async (req,res)=>{
     }
 }
 
-// update settings
-exports.updateUserController = async (req, res) => {
-    console.log('inside update controller');
-    const { companyname, address, contactemail, adduser, assignrole } = req.body;
-    const userId = req.params
-  
-    try {
-      const updatedUser = await users.findByIdAndUpdate({_id: userId},
-        { companyname, address, contactemail, adduser, assignrole, userId },
-        { new: true }
-      );
-      await updatedUser.save()
-      res.status(200).json(updatedUser)
-    } catch (err) {
-      res.status(401).json(err);
-    }
-  };
